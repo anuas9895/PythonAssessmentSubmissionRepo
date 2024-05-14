@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles1.css">
+
 </head>
 <style>
     
@@ -155,10 +155,12 @@ body {
       <ul>
         
             <li>
-               Repo Name: {{ repo.full_name }} <br><br>Description: {{ repo.description }} <br><br>Created at: {{ repo.created_at }} <br><br>Stars: {{ repo.stargazers_count }} <br><br> Forks: {{ repo.forks }}
-            </li>
+               Repo Name: {{ i.full_name }} <br><br>Description: {{ i.description }} <br><br>Created at: {{ i.created_at }} <br><br>Stars: {{ i.stargazers_count }} <br><br> Forks: {{ i.forks }}
+            </li><br>
         
-      </ul>{% endfor %}
+      </ul>{% endfor %} <br>
+
+
 
       
       <br><br><br>

@@ -16,22 +16,17 @@ def home(request):
 
 def search_repo(request):
 
+
     g = Github()
     if request.method == 'POST':
         a = request.POST["name1"]
         for repo in g.search_repositories(a):
             # Save the search results into the model
-                m=Repository(
-                    full_name=repo.full_name,
-                    description=repo.description,
-                    created_at=repo.created_at,
-                    stargazers_count=repo.stargazers_count,
-                    forks=repo.forks_count
-                )
-                m.save()
-        a = Repository.objects.all()
+            m = Repository(full_name=repo.full_name,description=repo.description,created_at=repo.created_at,stargazers_count=repo.stargazers_count,forks=repo.forks_count)
+            m.save()
+            a = Repository.objects.all().order_by('id').reverse()
 
-        return render(request, 'search_results.html', {'repo': a})
+            return render(request, 'search_results.html', {'repo': a})
 
 
 
